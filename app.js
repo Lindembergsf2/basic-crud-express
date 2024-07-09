@@ -23,17 +23,17 @@ app.get('/livros', (req, res) => {
 });
 
 // Read one
-app.get('/livros/:id', (req, res) => {
+app.get(`/livros/:id`, (req, res) => {
     const id = req.params.id;
     const livro = livros.find((livro) => livro.id === id);
     res.send(livro);
 });
 
-// Update
+//Update
 app.put('/livros/:id', (req, res) => {
     const id = req.params.id;
     const novoLivro = req.body;
-    let livroExistente = livros.find((livro) => livro.id === id);
+    let livroExistente = livros.find((livro) => livro.id == id);
     livroExistente.titulo = novoLivro.titulo;
     res.send(livroExistente);
 });
